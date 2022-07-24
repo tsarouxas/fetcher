@@ -46,43 +46,43 @@
 </template>
 
 <script>
-import ArticleCardBlock from '@/components/blocks/ArticleCardBlock'
-import InlineErrorBlock from '@/components/blocks/InlineErrorBlock'
+import ArticleCardBlock from "@/components/blocks/ArticleCardBlock";
+import InlineErrorBlock from "@/components/blocks/InlineErrorBlock";
 
 export default {
   components: {
     ArticleCardBlock,
-    InlineErrorBlock
+    InlineErrorBlock,
   },
   async fetch() {
     const articles = await fetch(
       `https://dev.to/api/articles?tag=nuxt&top=365&page=${this.currentPage}`
-    ).then((res) => res.json())
+    ).then((res) => res.json());
 
-    this.articles = this.articles.concat(articles)
+    this.articles = this.articles.concat(articles);
   },
   data() {
     return {
       currentPage: 1,
-      articles: []
-    }
+      articles: [],
+    };
   },
   methods: {
     lazyLoadArticles(isVisible) {
       if (isVisible) {
         if (this.currentPage < 5) {
-          this.currentPage++
-          this.$fetch()
+          this.currentPage++;
+          this.$fetch();
         }
       }
-    }
+    },
   },
   head() {
     return {
-      title: 'Top Nuxt.js articles'
-    }
-  }
-}
+      title: "Top Nuxt.js articles",
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -95,7 +95,6 @@ export default {
 .article-cards-wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   .article-card-block {
     width: calc(100% - 2 * 1rem);
     margin: 1rem;
