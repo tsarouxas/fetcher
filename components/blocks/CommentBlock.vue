@@ -120,7 +120,7 @@ export default {
   }
 }
 
-::v-deep .html-content {
+::deep .html-content {
   h1 {
     font-size: $text-3xl;
     margin-top: 2rem;

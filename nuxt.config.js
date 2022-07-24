@@ -39,7 +39,9 @@ export default {
   styleResources: {
     scss: ['~/assets/styles/tokens.scss']
   },
-
+  serverMiddleware: [
+    { path: '/api/products', handler: '~/api/products.js' }
+  ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
   ],

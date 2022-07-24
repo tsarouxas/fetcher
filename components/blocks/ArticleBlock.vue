@@ -180,7 +180,7 @@ header {
   }
 }
 
-::v-deep .content {
+::deep .content {
   .ltag__user {
     display: none;
   }
